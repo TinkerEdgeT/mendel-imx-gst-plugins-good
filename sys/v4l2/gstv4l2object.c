@@ -4096,6 +4096,7 @@ gst_v4l2_object_decide_allocation (GstV4l2Object * obj, GstQuery * query)
      * held by the decoder. */
     own_min = min + obj->min_buffers + 1;
 
+#if 0
     /* If no allocation parameters where provided, allow for a little more
      * buffers and enable copy threshold */
     if (!update) {
@@ -4106,6 +4107,10 @@ gst_v4l2_object_decide_allocation (GstV4l2Object * obj, GstQuery * query)
       gst_v4l2_buffer_pool_copy_at_threshold (GST_V4L2_BUFFER_POOL (pool),
           FALSE);
     }
+#else
+    /* Never enable buffer copies as it significantly degrades performance. */
+    gst_v4l2_buffer_pool_copy_at_threshold (GST_V4L2_BUFFER_POOL (pool), FALSE);
+#endif
 
   } else {
     /* In this case we'll have to configure two buffer pool. For our buffer
