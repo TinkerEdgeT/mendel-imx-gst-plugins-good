@@ -545,7 +545,7 @@ gst_v4l2_open (GstV4l2Object * v4l2object)
     goto not_open;
 
   libv4l2_fd = v4l2_fd_open (v4l2object->video_fd,
-      V4L2_ENABLE_ENUM_FMT_EMULATION);
+      V4L2_DISABLE_CONVERSION);
   /* Note the v4l2_xxx functions are designed so that if they get passed an
      unknown fd, the will behave exactly as their regular xxx counterparts, so
      if v4l2_fd_open fails, we continue as normal (missing the libv4l2 custom
