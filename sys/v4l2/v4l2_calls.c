@@ -583,7 +583,7 @@ gst_v4l2_open (GstV4l2Object * v4l2object)
 #ifdef HAVE_LIBV4L2
   if (v4l2object->fd_open)
     libv4l2_fd = v4l2object->fd_open (v4l2object->video_fd,
-        V4L2_ENABLE_ENUM_FMT_EMULATION);
+        V4L2_DISABLE_CONVERSION);
 #endif
 
   /* Note the v4l2_xxx functions are designed so that if they get passed an
