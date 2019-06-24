@@ -28,7 +28,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <string.h>
-#include <libdrm/drm_fourcc.h>
+#include <libdrm/drm_fourcc_imx.h>
 #include <gst/allocators/gstdmabufmeta.h>
 
 #include "gstv4l2object.h"
